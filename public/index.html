@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja" ng-app="EventSample">
   <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-resource.min.js"></script> 
     <script src="assets/application.js"></script>
     <link href="assets/application.css" media="all" rel="stylesheet" />
   </head>
@@ -10,14 +8,15 @@
     <div>
       <label>Name:</label>
       <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello {{yourName}}!</h1>
+      <br/>
+      <font size="4">Hello {{yourName}}!</font>
     </div>
     <div class="content" ng-controller="EventsCtrl">
       <div class="content_div">
-        <li ng-repeat="event in events" ng-class-even="'evenbg'" ng-class-odd="'oddbg'" >
+        title value:<input type="text" ng-model="query">
+        <div ng-repeat="event in events|filter:query"  >
         {{event.title}}&nbsp;&nbsp;|&nbsp;&nbsp;{{event.description}}
-        </li>
+        </div>
       </div>
     </div>
   </body>
